@@ -1,0 +1,54 @@
+{
+  "name": "notebook-hot-reload",
+  "displayName": "Notebook Hot Reload",
+  "description": "Auto-reload Jupyter notebooks in VS Code when .ipynb files change on disk. Essential for MCP server workflows (Datalayer, Claude Code, Cursor) where external processes modify notebooks.",
+  "version": "0.1.0",
+  "publisher": "kdkyum",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kdkyum/notebook-hot-reload"
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Notebooks",
+    "Other"
+  ],
+  "keywords": [
+    "jupyter",
+    "notebook",
+    "hot reload",
+    "live reload",
+    "mcp",
+    "ipynb",
+    "auto refresh"
+  ],
+  "activationEvents": [
+    "onNotebook:jupyter-notebook"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "Notebook Hot Reload",
+      "properties": {
+        "notebookHotReload.pollingInterval": {
+          "type": "number",
+          "default": 1500,
+          "minimum": 500,
+          "maximum": 10000,
+          "description": "Polling interval in milliseconds to check for .ipynb file changes."
+        },
+        "notebookHotReload.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable or disable notebook hot reload."
+        }
+      }
+    }
+  },
+  "extensionKind": [
+    "workspace"
+  ]
+}
